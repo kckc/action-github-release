@@ -13,5 +13,6 @@ RUN mkdir /opt \
     && mv /bin/linux/amd64/github-release /bin \
     && rm -r /opt/github-release.tar.bz2
 
-ENTRYPOINT github-release
+COPY ./entrypoint.sh /
+ENTRYPOINT ["/entrypoint.sh"]
 CMD ["--help"]
